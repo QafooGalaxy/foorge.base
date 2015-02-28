@@ -26,7 +26,7 @@ packages and repositories that a web/application server needs.
 
     - hosts: servers
       roles:
-         - role: qafoo-base
+         - role: "qafoo.base"
            base_java_version: 8
 
 License
