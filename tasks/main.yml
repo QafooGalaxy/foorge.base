@@ -1,0 +1,28 @@
+---
+- name: "Register Core Apt Repository Dependencies"
+  apt_repository: >
+      repo={{ item }}
+      state=present
+      update_cache=yes
+  with_items:
+    - "ppa:webupd8team/java"
+
+- name: "Accept Oracle License v1.1 for Java"
+  shell: "echo debconf shared/accepted-oracle-license-v1-1 select true | sudo debconf-set-selections"
+
+- name: "Install Core Dependencies"
+  apt: pkg={{ item }} state=present
+  with_items:
+    - "ack-grep"
+    - "ant"
+    - "curl"
+    - "daemon"
+    - "git"
+    - "logrotate"
+    - "netcat6"
+    - "python-docutils"
+    - "python-pycurl"
+    - "oracle-java{{ base_java_version }}-installer"
+    - "tree"
+    - "vim"
+    - "wget"
