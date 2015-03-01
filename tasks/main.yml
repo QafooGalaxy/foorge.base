@@ -23,7 +23,9 @@
     - "python-docutils"
     - "python-pycurl"
     - "oracle-java{{ base_java_version }}-installer"
+    - "supervisor"
     - "tree"
+    - "unzip"
     - "vim"
     - "wget"
 
@@ -31,3 +33,9 @@
   copy: >
       src=vimrc.local
       dest=/etc/vim/vimrc.local
+
+- name: "Create supervisord.conf"
+  template: >
+    src=supervisord.j2
+    dest=/etc/supervisor/supervisord.conf
+  notify: "Restart Supervisord"
