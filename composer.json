@@ -1,0 +1,9 @@
+{
+    "name": "qafoogalaxy/foorge.base",
+    "description": "Base Dependency for all Foorge Ansible Roles",
+    "license": "BSD-2-Clause",
+    "type": "ansible-role",
+    "require": {
+        "qafoogalaxy/installer": "@stable"
+    }
+}
